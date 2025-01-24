@@ -14,6 +14,7 @@ app.use(
       "http://localhost:5173",
       "https://hanzlu-project-client.vercel.app",
     ],
+    methods: ["GET", "POST"],
     credentials: true,
   })
 );
@@ -40,6 +41,7 @@ const ItemSchema = new mongoose.Schema(
 
 const Item = mongoose.model("Item", ItemSchema);
 
+// Routes
 app.post("/api/items", async (req, res) => {
   try {
     const { title, description, price, imageUrl } = req.body;
