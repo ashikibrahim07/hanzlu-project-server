@@ -11,12 +11,13 @@ const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: [
-      "http://localhost:5173/",
-      "https://hanzlu-project-client.vercel.app/",
+      "http://localhost:5173",
+      "https://hanzlu-project-client.vercel.app",
     ],
     credentials: true,
   })
 );
+
 app.use(express.json({ limit: "50mb" }));
 
 mongoose
@@ -39,7 +40,6 @@ const ItemSchema = new mongoose.Schema(
 
 const Item = mongoose.model("Item", ItemSchema);
 
-// Routes
 app.post("/api/items", async (req, res) => {
   try {
     const { title, description, price, imageUrl } = req.body;
